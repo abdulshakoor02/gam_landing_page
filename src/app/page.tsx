@@ -1,15 +1,22 @@
+"use client";
+
 import Image from "next/image";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import { Carousel } from "@/components/carousel";
 import { ContainerScroll } from "@/components/scroller";
 import { ContactForm } from "@/components/contact-form";
+import { Modal, ModalTrigger, ModalBody, ModalContent } from "@/components/ui/animated-modal";
 import { ThreeDCardDemo } from "@/components/3d-card";
-import Features from "@/components/feature";
-import CallToAction from "@/components/callToAction";
+import { AnimatedTestimonials } from "@/components/animated-testimonials";
+import { CardWithText } from "@/components/card-with-text";
+import { Timeline } from "@/components/timeline";
+import { HeaderSection } from "@/components/header-section";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <>
+      <HeaderSection />
+      <main className="flex min-h-screen flex-col items-center justify-between p-24">
       {/* Carousel Section */}
       <BackgroundGradientAnimation>
         <Carousel slides={[
@@ -55,13 +62,94 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Form */}
-      <ContactForm />
+      {/* Contact Form Modal */}
+      <Modal>
+        <ModalTrigger>
+          <div
+            className="fixed right-0 top-1/2 -translate-y-1/2 z-50 mr-4 bg-black-500 hover:bg-black-700 text-white font-bold py-4 px-2 rounded-t-lg cursor-pointer"
+            style={{ writingMode: 'vertical-lr', textOrientation: 'upright' }}
+          >
+            Contact Us
+          </div>
+        </ModalTrigger>
+        <ModalBody>
+          <ModalContent>
+            <ContactForm />
+          </ModalContent>
+        </ModalBody>
+      </Modal>
 
-      {/* Features Section */}
-      <Features />
-      {/* Call to Action Section */}
-      <CallToAction />
+      {/* Card with Text Section */}
+      <section className="flex flex-col items-center justify-center py-20">
+        <h2 className="text-4xl font-bold text-center mb-10">Our Vision</h2>
+        <CardWithText cardText="Our vision is to be the leading global migration consultancy, empowering individuals and families to achieve their dreams of living and working abroad. We are committed to providing unparalleled guidance, support, and resources, ensuring a seamless and successful migration journey for every client." />
+      </section>
+
+      {/* Timeline Section */}
+      <Timeline
+        data={[
+          {
+            title: "Phase 1",
+            content: (
+              <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
+                Initial research and planning for the project. Gathering requirements and setting up the development environment.
+              </p>
+            ),
+          },
+          {
+            title: "Phase 2",
+            content: (
+              <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
+                Development of core features and components. Implementing the main functionalities of the application.
+              </p>
+            ),
+          },
+          {
+            title: "Phase 3",
+            content: (
+              <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
+                Testing and debugging. Ensuring the application is stable and bug-free. User acceptance testing.
+              </p>
+            ),
+          },
+          {
+            title: "Phase 4",
+            content: (
+              <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
+                Deployment and post-launch support. Monitoring performance and addressing any issues that arise.
+              </p>
+            ),
+          },
+        ]}
+      />
+
+      {/* Testimonials Section */}
+      <section className="flex flex-col items-center justify-center py-20">
+        <h2 className="text-4xl font-bold text-center mb-10">Testimonials</h2>
+        <AnimatedTestimonials
+        testimonials={[
+          {
+            quote: "This is the best service I have ever received! Highly recommended.",
+            name: "John Doe",
+            designation: "CEO, Example Corp",
+            src: "/testimonial/testi1.jpg",
+          },
+          {
+            quote: "Amazing experience, very professional and efficient.",
+            name: "Jane Smith",
+            designation: "CTO, Another Co",
+            src: "/testimonial/test2.jpg",
+          },
+          {
+            quote: "Truly a game-changer for our business. Thank you!",
+            name: "Peter Jones",
+            designation: "Founder, Startup Inc",
+            src: "/testimonial/testi3.jpg",
+          },
+        ]}
+      />
+      </section>
     </main>
+    </>
   );
 }
