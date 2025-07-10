@@ -1,26 +1,60 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-deep-navy-blue: #1E3A8A;
+  --color-professional-teal: #0F766E;
+  --color-warm-gold-accent: #F59E0B;
+  --color-clean-white: #FFFFFF;
+  --color-light-gray: #F8FAFC;
+  --color-soft-blue-gradient-from: #EFF6FF;
+  --color-soft-blue-gradient-to: #DBEAFE;
+  --color-dark-charcoal: #1F2937;
+  --color-medium-gray: #6B7280;
+  --color-light-gray-text: #9CA3AF;
+  --color-emerald-green: #10B981;
+  --color-forest-green: #047857;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply font-sans text-dark-charcoal bg-light-gray; /* Default body styles using Inter and custom colors */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-serif; /* Headings use Montserrat */
+}
+
+/* Example of using custom colors - can be removed later */
+.example-text {
+  @apply text-professional-teal;
+}
+
+.example-bg {
+  @apply bg-deep-navy-blue text-clean-white;
+}
+
+/* Resetting some default browser styles if needed */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Additional global styles can be added here */
+
+/* For Aceternity InfiniteMovingCards */
+@layer utilities {
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem)); /* Ensure this matches the component's needs */
+    }
+  }
+  .animate-scroll {
+    animation: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+  }
 }
