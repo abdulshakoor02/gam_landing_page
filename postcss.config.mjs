@@ -1,9 +1,8 @@
-const config = {
-  plugins: {
-    "tailwindcss/nesting": {}, // Often recommended for Tailwind
-    tailwindcss: { config: "./tailwind.config.mjs" },
-    autoprefixer: {},
-  },
+// Using array syntax for plugins, which can sometimes be more compatible.
+export default {
+  plugins: [
+    "tailwindcss/nesting", // Optional, but often useful
+    ["tailwindcss", { config: "./tailwind.config.mjs" }],
+    "autoprefixer",
+  ],
 };
-
-export default config;
