@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <HeaderSection />
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <main className="flex min-h-screen flex-col items-center justify-between p-4 sm:p-6 md:p-8 lg:p-12 xl:p-24">
       {/* Carousel Section */}
       <BackgroundGradientAnimation>
         <Carousel slides={[
@@ -31,9 +31,9 @@ export default function Home() {
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="text-4xl font-semibold text-black dark:text-white">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black dark:text-white">
               Migration From UAE Through<br />
-              <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+              <span className="text-3xl sm:text-4xl md:text-5xl lg:text-[6rem] font-bold mt-1 leading-none">
                 Go Abroad Migration
               </span>
             </h1>
@@ -45,15 +45,17 @@ export default function Home() {
           alt="Australia"
           height={720}
           width={1400}
-          className="mx-auto rounded-2xl object-cover h-full object-left-top"
+          className="mx-auto rounded-2xl object-cover h-full object-left-top w-full max-w-full"
           draggable={false}
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 80vw, 70vw"
+          loading="lazy"
         />
       </ContainerScroll>
 
       {/* 3D Cards Section */}
-      <section className="flex flex-col items-center justify-center py-20">
-        <h2 className="text-4xl font-bold text-center mb-10">Services Offered by Us</h2>
-        <div className="flex flex-wrap justify-center gap-8">
+      <section className="flex flex-col items-center justify-center py-12 sm:py-16 md:py-20">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10">Services Offered by Us</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8">
           <ThreeDCardDemo title="Canada PR" description="Description for service 1" description2="More text for service 1" imageSrc="/3dcard/canada.jpg" />
           <ThreeDCardDemo title="Australia PR" description="Description for service 2" description2="More text for service 2" imageSrc="/3dcard/australia.jpg" />
           <ThreeDCardDemo title="Visit Visa" description="Description for service 3" description2="More text for service 3" imageSrc="/3dcard/france.jpg" />
@@ -66,7 +68,7 @@ export default function Home() {
       <Modal>
         <ModalTrigger>
           <div
-            className="fixed right-0 top-1/2 -translate-y-1/2 z-50 mr-4 bg-black-500 hover:bg-black-700 text-white font-bold py-4 px-2 rounded-t-lg cursor-pointer"
+            className="fixed right-2 sm:right-4 top-1/2 -translate-y-1/2 z-50 bg-black hover:bg-gray-800 text-white font-bold py-3 px-3 sm:py-4 sm:px-2 rounded-lg sm:rounded-t-lg cursor-pointer transition-colors duration-200"
             style={{ writingMode: 'vertical-lr', textOrientation: 'upright' }}
           >
             Contact Us
@@ -80,8 +82,8 @@ export default function Home() {
       </Modal>
 
       {/* Card with Text Section */}
-      <section className="flex flex-col items-center justify-center py-20">
-        <h2 className="text-4xl font-bold text-center mb-10">Our Vision</h2>
+      <section className="flex flex-col items-center justify-center py-12 sm:py-16 md:py-20">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10">Our Vision</h2>
         <CardWithText cardText="Our vision is to be the leading global migration consultancy, empowering individuals and families to achieve their dreams of living and working abroad. We are committed to providing unparalleled guidance, support, and resources, ensuring a seamless and successful migration journey for every client." />
       </section>
 
@@ -124,8 +126,8 @@ export default function Home() {
       />
 
       {/* Testimonials Section */}
-      <section className="flex flex-col items-center justify-center py-20">
-        <h2 className="text-4xl font-bold text-center mb-10">Testimonials</h2>
+      <section className="flex flex-col items-center justify-center py-12 sm:py-16 md:py-20">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10">Testimonials</h2>
         <AnimatedTestimonials
         testimonials={[
           {
