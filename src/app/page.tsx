@@ -82,7 +82,7 @@ export default function Home() {
       </Modal>
 
       {/* Card with Text Section */}
-      <section className="flex flex-col items-center justify-center py-12 sm:py-16 md:py-20">
+      <section className="w-full py-12 sm:py-16 md:py-20">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10">Our Vision</h2>
         <CardWithText cardText="Our vision is to be the leading global migration consultancy, empowering individuals and families to achieve their dreams of living and working abroad. We are committed to providing unparalleled guidance, support, and resources, ensuring a seamless and successful migration journey for every client." />
       </section>

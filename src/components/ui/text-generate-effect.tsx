@@ -8,28 +8,43 @@ export const TextGenerateEffect = ({
   className,
   filter = true,
   duration = 0.5,
+  shouldAnimate = true,
 }: {
   words: string;
   className?: string;
   filter?: boolean;
   duration?: number;
+  shouldAnimate?: boolean;
 }) => {
   const [scope, animate] = useAnimate();
   let wordsArray = words.split(" ");
 
   useEffect(() => {
-    animate(
-      "span",
-      {
-        opacity: 1,
-        filter: filter ? "blur(0px)" : "none",
-      },
-      {
-        duration: duration ? duration : 1,
-        delay: stagger(0.2),
-      }
-    );
-  }, [scope.current]);
+    if (shouldAnimate) {
+      animate(
+        "span",
+        {
+          opacity: 1,
+          filter: filter ? "blur(0px)" : "none",
+        },
+        {
+          duration: duration ? duration : 1,
+          delay: stagger(0.2),
+        }
+      );
+    } else {
+      animate(
+        "span",
+        {
+          opacity: 0,
+          filter: filter ? "blur(10px)" : "none",
+        },
+        {
+          duration: 0.3,
+        }
+      );
+    }
+  }, [scope.current, shouldAnimate]);
 
   const renderWords = () => {
     return (
